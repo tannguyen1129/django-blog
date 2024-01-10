@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+        <!--Left sidebar-->
+        <!--load the sidebar here-->
+        {% include 'dashboards/sidebar.html' %}
+
+        <!--Right side content-->
+        <div class="col-md-9">
+            <h2>All Posts</h2>
+            <a href="{% url 'dashboards:add_post' %}" class="btn btn-dark text-light float-right mb-2">Add New</a>
+            <table class="table">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên bài</th>
+                    <th>Chủ đề</th>
+                    <th>Tác giả</th>
+                    <th>Trạng thái</th>
+                    <th>Ngày đăng</th>
+                    <th>Hoạt động</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in posts %}
+            <tr>
+                <th>{{forloop.counter}}</th>
+                <td>{{post.title}}</td>
+                <td>{{post.category}}</td>
+                <td>{{post.author}}</td>
+                <td>{{post.status}}</td>
+                <td>{{post.created_at}}</td>
+                <td>
+                    <a href="{% url 'dashboards:edit_post' post.id  %}"><i class="fa fa-edit text-success"></i></a>
+                    &nbsp;
+                    <a href="{% url 'dashboards:delete_post' post.id  %}"><i class="fa fa-trash text-danger"></i></a>
+                </td>
+            </tr>
+                {% endfor %}
+            </tbody>
+            </table>   
+        </div>
+</div>
+
+
+{% endblock %}
+

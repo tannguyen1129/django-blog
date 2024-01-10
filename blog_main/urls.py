@@ -5,16 +5,18 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from core import views as BlogsView
+from core import views as CoreView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
     path('', include("core.urls")),
-    path('<slug:slug>/', BlogsView.blogs, name='blogs'), 
+    path('<slug:slug>/', CoreView.blogs, name='blogs'), 
     
     #Search endpoint
-    path('blogs/search/', BlogsView.search, name='search'),
-    path('my-dashboard/', include("dashboards.urls")),
+    path('search/', CoreView.search, name='search'),
+    path('dashboard/', include("dashboards.urls")),
     
 
 ]
