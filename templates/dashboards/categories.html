@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+        <!--Left sidebar-->
+        <!--load the sidebar here-->
+        {% include 'dashboards/sidebar.html' %}
+
+        <!--Right side content-->
+        <div class="col-md-9">
+            <h2>All categories</h2>
+            <a href="{% url 'dashboards:add_category' %}" class="btn btn-dark text-light float-right mb-2">Add New</a>
+            <table class="table">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên chủ đề</th>
+                    <th>Ngày đăng</th>
+                    <th>Cập nhật</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cat in categories %}
+            <tr>
+                <th>{{forloop.counter}}</th>
+                <td>{{cat}}</td>
+                <td>{{cat.create_at}}</td>
+                <td>{{cat.update_at}}</td>
+                <td>
+                    <a href="{% url 'dashboards:edit_category' cat.id %}"><i class="fa fa-edit text-success"></i></a>
+                    &nbsp;
+                    <a href="{% url 'dashboards:delete_category' cat.id %}"><i class="fa fa-trash text-danger"></i></a>
+                </td>
+            </tr>
+                {% endfor %}
+            </tbody>
+            </table>   
+        </div>
+</div>
+
+
+{% endblock %}
+

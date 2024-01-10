@@ -1,5 +1,0 @@
-pip install django-jazzmin
-pip install pillow
-pip install django-crispy-forms
-pip install crispy-bootstrap4
-

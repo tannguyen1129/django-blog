@@ -14,6 +14,9 @@ urlpatterns = [
     
     #Search endpoint
     path('blogs/search/', BlogsView.search, name='search'),
+    path('my-dashboard/', include("dashboards.urls")),
+    
+
 ]
 
 if settings.DEBUG:
