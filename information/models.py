@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 class About(models.Model):
     about_heading = models.CharField(max_length=25)
@@ -15,10 +16,11 @@ class About(models.Model):
     
 class SocialLink(models.Model):
     platform = models.CharField(max_length=25)
-    link = models.URLField
+    link = models.URLField (max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
     def __str__(self):
         return self.platform
+    
     

@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     
     'core',
     'information',
+    'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +144,5 @@ JAZZMIN_SETTINGS = {
     'site_header': "My Site",
     'welcome_sign': "Welcome to Blog Khmer Culture",
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
