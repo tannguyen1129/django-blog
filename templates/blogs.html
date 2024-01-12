@@ -23,6 +23,40 @@
                 <section class="mb-5">
                     <p class="fs-5 mb-4">{{single_blog.short_description}}</p>
                     <p class="fs-5 mb-4">{{single_blog.blog_body}}</p>
+
+
+                    <!-- Comment -->
+                    <h4>Comments ({{comment_count}})</h4>
+                    {% if comments %}
+                        {% for comment in comments %}
+                        <div class="card mt-1">
+                            <div class="card-body">
+                                <p class="card-text mb-0">{{ comment }}</p>
+                                <span>
+                                    <small>By {{ comment.user }}</small>
+                                    <small>| {{ comment.created_at | timesince}} ago</small> 
+                                </span> 
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                    Không có bình luận
+                    {% endif %}
+                    <br>
+                    <div class"form-group">
+                        {% if user.is_authenticated %}
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <textarea name="comment" class="form-control" placeholder="Bình luận của bạn"></textarea>
+                                <input type="submit" value="Bình luận" class="btn btn-primary mt-2"></input>
+                            </div>
+
+                        <form>
+                        {% else %}
+                        <p>Hãy <span><a href="{% url 'core:login' %}">đăng nhập</a></span> để viết bình luận</p>
+                        {% endif %}
+                    </div>
                     </section>
             </article>
         </div>

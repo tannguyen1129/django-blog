@@ -47,7 +47,7 @@
             <a class="p-2 text-muted" href="{% url 'core:posts_by_category' cat.id %}">{{ cat.category_name }}</a>
             
           {% endfor %}
-            <a class="p-2 text-muted" href="">Học tiếng Khmer</a>
+            <a class="p-2 text-muted" href="{% url 'core:learnKhmer' %}">Học tiếng Khmer</a>
         </nav>
       </div>
 
