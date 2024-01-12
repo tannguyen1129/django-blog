@@ -13,7 +13,7 @@
                     <!-- Post title-->
                     <h1 class="fw-bolder mb-1">{{single_blog.title}}</h1>
                     <!-- Post meta content-->
-                    <div class="text-muted fst-italic mb-2">Posted on {{single_blog.created_at}} by {{single_blog.author}}</div>
+                    <div class="text-muted fst-italic mb-2">Được viết {{single_blog.created_at}} bởi {{single_blog.author}}</div>
                     <!-- Post category-->
                     <a class="badge bg-warning text-decoration-none text-light" href="#!">{{single_blog.category}}</a>
                 </header>
@@ -26,15 +26,15 @@
 
 
                     <!-- Comment -->
-                    <h4>Comments ({{comment_count}})</h4>
+                    <h4>Bình luận ({{comment_count}})</h4>
                     {% if comments %}
                         {% for comment in comments %}
                         <div class="card mt-1">
                             <div class="card-body">
                                 <p class="card-text mb-0">{{ comment }}</p>
                                 <span>
-                                    <small>By {{ comment.user }}</small>
-                                    <small>| {{ comment.created_at | timesince}} ago</small> 
+                                    <small>Được viết bởi {{ comment.user }}</small>
+                                    <small>| {{ comment.created_at | timesince}} trước</small> 
                                 </span> 
                             </div>
                         </div>
@@ -65,7 +65,7 @@
             
             <!-- Categories widget-->
             <div class="card mb-4 p-3">
-                <h4 class="font-italic">Categories</h4>
+                <h4 class="font-italic">Các chủ đề</h4>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6">
@@ -82,7 +82,7 @@
             <!-- Side widget-->
             {% if social_links %}
             <div class="card mb-4 p-3">
-                <h4 class="font-italic">Follow Us</h4>
+                <h4 class="font-italic">Theo dõi chúng tôi</h4>
                 <ol class="list-unstyled">
                     {% for i in social_links %}
                     <li><a href="{{i.link}}" target="_blank">{{i.platform}}</a></li>

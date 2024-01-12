@@ -17,6 +17,8 @@ urlpatterns = [
     #Search endpoint
     path('search/', CoreView.search, name='search'),
     path('dashboard/', include("dashboards.urls")),
+    path('learn/', include("learnkhmer.urls")),
+    
     
 
 ]

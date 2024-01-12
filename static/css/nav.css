@@ -1,0 +1,136 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100vh;
+}
+
+header{
+  font-family: 'Montserrat', sans-serif;
+  border:1px solid #ccc;
+  background-color:#3466e3;
+  color:white;
+  text-align:center;
+  padding:15px;
+}
+
+body{
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.toggel_btn{
+  display: none;
+  position: absolute;
+  top: 0rem;
+  right: 2rem;
+  font-size: 30px;
+}
+
+nav {
+  max-width: 100%;
+  mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
+}
+
+nav ul {
+  text-align: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  padding: 18px;
+  font-family: "Open Sans";
+  text-transform:uppercase;
+  color: rgba(0, 35, 122, 1);
+  font-size: 18px;
+  text-decoration: none;
+  display: block;
+}
+
+nav ul li a:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(0, 35, 122, 0.7);
+}
+
+/*Drop Down menu*/
+.dropDown{
+  position: absolute;
+  right: 2rem;
+  top: 60px;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px ;
+  display: none;
+  justify-content: center;
+}
+.linkDropDown li a{
+  color: black;
+  font-size: x-large;
+  text-decoration: none;
+}
+.linkDropDown li{
+  width: 300px;
+  text-align: center;
+  border-radius: 15px;
+  border-bottom: black solid 1px;
+  list-style: none;
+}
+.linkDropDown li:hover{
+  background-image: linear-gradient(to left, rgba(255, 255, 255, .2), rgba(255, 255, 255, .4), rgba(255, 255, 255, .4), rgba(255, 255, 255, .2));
+}
+
+.openPractical{
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  width: 120px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #ece337;
+  transition: .4s;
+}
+.openPractical:hover{
+  transform: scale(1.2);
+}
+.dropdown_TracNghiem{
+  background-color: #ece337;
+}
+
+
+
+
+
+
+
+/* responsve */
+@media (max-width: 1290px){
+  nav{
+    display: none;
+  }
+  .toggel_btn{
+    display: unset;
+  }
+  .openPractical{
+    display: none;
+  }
+}
+@media (max-width: 400px) {
+  .dropDown{
+      width: 100%;
+      right: 0rem;
+  }
+  .linkDropDown li{
+    width: 100%;
+  }
+}

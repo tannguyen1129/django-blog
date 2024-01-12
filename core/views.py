@@ -119,8 +119,7 @@ def logout(request):
     auth.logout(request)
     return redirect('core:home')
 
-def learnKhmer(request):
-    return render(request, 'core/learnKhmer.html')
+
 
 
 

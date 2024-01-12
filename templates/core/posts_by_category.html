@@ -3,7 +3,7 @@
 {% block content %}
     
 <!--Featured Posts-->
-<h3 class="text-uppercase text-warning" style="letter-spacing: 2px;">Category - {{ category }}</h3>
+<h3 class="text-uppercase text-warning" style="letter-spacing: 2px;">Chủ đề - {{ category }}</h3>
 <div class="row mb-2">
   {% if posts %}
   {% for post in posts %}
@@ -11,7 +11,7 @@
       <div class="card border-0" >
         <div class="card-body">
           <h3><a href="{% url 'blogs' post.slug %}" class="text-dark">{{ post.title }}</a></h3>
-          <small class="mb-1 text-muted">{{ post.created_at | timesince }} ago | {{post.author}}</small>
+          <small class="mb-1 text-muted">{{ post.created_at | timesince }} trước | {{post.author}}</small>
           <p class="card-text">{{ post.short_description | truncatewords:50 }}</p>
         </div>
       </div>

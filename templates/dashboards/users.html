@@ -10,8 +10,8 @@
         <!--Right side content-->
         <div class="col-md-9">
         {% if perms.auth.view_user %}
-            <h2>All Users</h2>
-            <a href="{% url 'dashboards:add_user' %}" class="btn btn-dark text-light float-right mb-2">Add New</a>
+            <h2>Tất cả tài khoản</h2>
+            <a href="{% url 'dashboards:add_user' %}" class="btn btn-dark text-light float-right mb-2">Thêm mới</a>
             <table class="table">
             <thead>
                 <tr>
@@ -45,7 +45,7 @@
             </tbody>
             </table> 
             {% else %}
-            <h5> You do not have permission to view this page<h5>
+            <h5>Bạn không có quyền xem trang này<h5>
             {% endif %}
         </div>
 </div>
