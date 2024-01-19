@@ -15,10 +15,9 @@ urlpatterns = [
     path('<slug:slug>/', CoreView.blogs, name='blogs'), 
     
     #Search endpoint
-    path('search/', CoreView.search, name='search'),
+    path('blogs/search/', CoreView.search, name='search'),
     path('dashboard/', include("dashboards.urls")),
     path('learn/', include("learnkhmer.urls")),
-    
     
 
 ]

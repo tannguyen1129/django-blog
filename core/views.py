@@ -8,6 +8,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import auth
 from django.http import HttpResponseRedirect
 
+from .serializers import BlogSerializer
+from rest_framework import generics
 
 
 def home(request):
@@ -119,7 +121,13 @@ def logout(request):
     auth.logout(request)
     return redirect('core:home')
 
-
+class BlogList(generics.ListCreateAPIView):
+    queryset = Blog.objects.all()
+    serializer_class = BlogSerializer
+    
+class BlogDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Blog.objects.all()
+    serializer_class = BlogSerializer
 
 
 
