@@ -19,6 +19,7 @@ urlpatterns = [
     path('dashboard/', include("dashboards.urls")),
     path('learn/', include("learnkhmer.urls")),
     
+    path("api-auth/", include("rest_framework.urls")),
 
 ]
 

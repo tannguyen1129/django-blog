@@ -9,7 +9,9 @@ from django.contrib import auth
 from django.http import HttpResponseRedirect
 
 from .serializers import BlogSerializer
-from rest_framework import generics
+from rest_framework import generics, permissions
+from .permissions import IsAuthorOrReadOnly
+
 
 
 def home(request):
@@ -122,10 +124,12 @@ def logout(request):
     return redirect('core:home')
 
 class BlogList(generics.ListCreateAPIView):
+    permission_classes = (IsAuthorOrReadOnly,) 
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
     
 class BlogDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsAuthorOrReadOnly,)
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
 
