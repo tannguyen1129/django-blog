@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'allauth', # new
     'allauth.account', # new
     'allauth.socialaccount',
+    'drf_spectacular',
     
     
 ]
@@ -69,7 +70,16 @@ REST_FRAMEWORK = { # new
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
         ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Khmer Culture System",
+    "DESCRIPTION": "Hệ thống bảo tồn văn hóa Khmer Nam Bộ",
+    "VERSION": "1.0.0",
+# OTHER SETTINGS
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

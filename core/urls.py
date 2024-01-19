@@ -1,9 +1,18 @@
 from django.urls import path, include
 from core import views
 
-from .views import BlogList, BlogDetail
+from .views import BlogList, BlogDetail, UserList, UserDetail
 
 app_name = 'core'
+
+from rest_framework.routers import SimpleRouter
+from .views import UserViewSet, BlogViewSet
+
+router = SimpleRouter()
+router.register("users", UserViewSet, basename="users")
+router.register("", BlogViewSet, basename="blogs")
+
+urlpatterns = router.urls
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -15,4 +24,6 @@ urlpatterns = [
     path("api/v1/<int:pk>/", BlogDetail.as_view(), name="blog_detail"),
     path("api/v1/", BlogList.as_view(), name="blog_list"),
     
+    path("api/v1/users/", UserList.as_view()), # new
+    path("api/v1/users/<int:pk>/", UserDetail.as_view()), 
 ]

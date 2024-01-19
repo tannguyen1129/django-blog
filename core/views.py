@@ -8,11 +8,15 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import auth
 from django.http import HttpResponseRedirect
 
-from .serializers import BlogSerializer
+from .serializers import BlogSerializer, UserSerializer
 from rest_framework import generics, permissions
 from .permissions import IsAuthorOrReadOnly
 
+from django.contrib.auth import get_user_model
 
+from rest_framework import viewsets
+
+from rest_framework.permissions import IsAdminUser
 
 def home(request):
     featured_post = Blog.objects.filter(is_featured=True, status='Published').order_by('updated_at')
@@ -133,5 +137,21 @@ class BlogDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
 
+class UserList(generics.ListCreateAPIView): # new
+    queryset = get_user_model().objects.all()
+    serializer_class = UserSerializer
 
+class UserDetail(generics.RetrieveUpdateDestroyAPIView): # new
+    queryset = get_user_model().objects.all()
+    serializer_class = UserSerializer
+
+class BlogViewSet(viewsets.ModelViewSet): # new
+    permission_classes = (IsAuthorOrReadOnly,)
+    queryset = Blog.objects.all()
+    serializer_class = BlogSerializer
+
+class UserViewSet(viewsets.ModelViewSet): # new
+    permission_classes = [IsAdminUser]
+    queryset = get_user_model().objects.all()
+    serializer_class = UserSerializer
 
